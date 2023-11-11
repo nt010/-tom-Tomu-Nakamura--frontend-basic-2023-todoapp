@@ -17,11 +17,11 @@ const StyledButton = styled.button`
     display: flex;
     width: 20px;
     height: 20px;
-    flex-shrink: 0;
     background: none;
     border: none;
     border-radius: 50%;
     justify-content: center;
+    align-items: center;
     transition: 0.3s;
     img{
         display: flex;
