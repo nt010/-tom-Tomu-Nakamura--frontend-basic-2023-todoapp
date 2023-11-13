@@ -11,8 +11,6 @@ export const EditButton = (props) => {
     );
 };
 
-export default EditButton;
-
 const StyledButton = styled.button`
     display: flex;
     width: 20px;
