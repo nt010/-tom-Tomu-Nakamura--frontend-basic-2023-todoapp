@@ -21,7 +21,7 @@ const StyledTaskButton = styled.button`
     gap: 10px;
     background: none;
     border: none;
-    border-radius: 14px;
+    border-radius: 12px;
     transition: 0.3s;
 
     .img-plus{
