@@ -4,7 +4,7 @@ import COLOR from "../../../variables/color";
 import FONTFAMILY from "../../../variables/font_family";
 import TEXT from "../../../variables/texts";
 
-export const Input = ({onEditComplete},{defaultValue}) =>{
+export const Input = ({ onEditComplete , defaultValue = "" }) =>{
     const inputRef = useRef(null);
 
     //useStateの第二引数に空配列 => 初期化時のみ実行
@@ -33,9 +33,12 @@ export const Input = ({onEditComplete},{defaultValue}) =>{
 };
 
 const StyledInput = styled.input`
+    display: flex;
     width: 100%;
-    height: 20px;
     padding: 0px 4px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
     border-radius: 2px;
     background: ${COLOR.BLACK};
     color: ${COLOR.LIGHT_GRAY};
