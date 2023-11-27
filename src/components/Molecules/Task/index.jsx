@@ -7,7 +7,7 @@ import COLOR from "../../../variables/color";
 import FONTFAMILY from "../../../variables/font_family";
 import TEXT from "../../../variables/texts";
 
-export const Task = ({onTaskNameChange, onTaskComplete, taskName="", defaultIsEditing=false}) => {
+export const Task = ({onTaskNameChange, onTaskComplete, taskName="taskname", defaultIsEditing=false}) => {
 
     const [isEditing,setIsEditing] = useState(defaultIsEditing);
 
@@ -21,18 +21,51 @@ export const Task = ({onTaskNameChange, onTaskComplete, taskName="", defaultIsEd
     }
 
     return (
-        <StyledDiv>
-            <Checkbox onClick={onTaskComplete}/>
+        <StyledWrapper>
+            <StyledCheckboxWrapper>
+                <Checkbox onClick={onTaskComplete}/>
+            </StyledCheckboxWrapper>
+            
+            {isEditing ? //三項演算子
             <Input onEditComplete={onEditComplete} defaultValue={taskName}/>
-            <EditButton onClick={onEditButtonClick}/>
-        </StyledDiv>
+            :
+            <StyledNameAndButtonWrapper>
+                <StyledTaskName>{taskName}</StyledTaskName>
+                <StyledEditButtonWrapper>
+                    <EditButton onClick={onEditButtonClick}/>
+                </StyledEditButtonWrapper>
+            </StyledNameAndButtonWrapper>
+            }
+
+        </StyledWrapper>
     );
 };
 
-const StyledDiv = styled.div`
+const StyledWrapper = styled.div`
+    display: flex;
+    padding: 2px 6px;
+    gap: 10px;
+`;
+
+const StyledCheckboxWrapper = styled.div`
+    display: flex;
+`;
+
+const StyledNameAndButtonWrapper = styled.div`
     display: flex;
     width: 100%;
-    padding: 2px 6px;
-    align-items: center;
     gap: 10px;
+`;
+
+const StyledTaskName = styled.div`
+    color: ${COLOR.LIGHT_GRAY};
+    font-family: ${FONTFAMILY.NOTO_SANS};
+    ${TEXT.S};
+    font-weight: 500;
+    line-height: 20px;
+    width: 100%;
+`;
+
+const StyledEditButtonWrapper = styled.div`
+    display: flex;
 `;

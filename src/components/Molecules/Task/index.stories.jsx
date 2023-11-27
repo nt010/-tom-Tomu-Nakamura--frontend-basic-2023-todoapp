@@ -10,7 +10,7 @@ export const Default = {
         onTaskComplete: () => {
             console.log("task completed");
         },
-        taskName: "",
+        taskName: "taskname",
         defaultIsEditing: false,
     }
 };
