@@ -5,7 +5,7 @@ export default {component: Task};
 export const Default = {
     args:{
         onTaskNameChange: (value) => {
-            console.log("edited: "+value);
+            console.log("taskname changed: " + value);
         },
         onTaskComplete: () => {
             console.log("task completed");
