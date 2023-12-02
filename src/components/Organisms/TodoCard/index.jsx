@@ -3,8 +3,6 @@ import {TaskButton} from "../../Atoms/AddTaskButton";
 import {Task} from "../../Molecules/Task";
 import styled from "styled-components";
 import COLOR from "../../../variables/color";
-import FONTFAMILY from "../../../variables/font_family";
-import TEXT from "../../../variables/texts";
 
 export const TodoCard = () => {
 
