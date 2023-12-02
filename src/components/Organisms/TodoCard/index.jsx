@@ -45,8 +45,9 @@ export const TodoCard = () => {
             <StyledTaskList>
                 {taskList ? taskList.map((task, index) => (
                 <Task
-                    onTaskComplete={onTaskComplete(index)} 
-                    onTaskNameChange={onTaskNameChange(value, index)}
+                    key={index}
+                    onTaskComplete={() => onTaskComplete(index)} 
+                    onTaskNameChange={(value) => onTaskNameChange(value, index)}
                     taskName = {task.name}
                     defaultIsEditing = {task.initializing}
                 />  
