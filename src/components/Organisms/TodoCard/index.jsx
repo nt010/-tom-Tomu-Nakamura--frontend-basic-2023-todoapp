@@ -12,18 +12,30 @@ export const TodoCard = () => {
 
 
     const onAddTaskButtonClick = () => {
-        setTaskList(Object.assign(taskList, {name:"", initializing: true} ));
+        //Spread構文: [...array]で配列を展開
+        setTaskList(taskList => [...taskList, {name:"", initializing: true}]);
     }
 
-    const onTaskComplete = (index) => {
-        taskList.filter((item) => (item.index != index))
+    const onTaskComplete = (taskIndex) => {
+        const filteredTaskList = taskList.filter((index) => (index != taskIndex));
+        setTaskList(filteredTaskList);
     }
 
-    const onTaskNameChange = (value, index) => {
+    const onTaskNameChange = (value, taskIndex) => {
         if(value === ""){
-            onTaskComplete(index);
+            const editedTaskList = taskList.filter((task, index) => {
+                return index !== taskIndex;
+            });
+            setTaskList(editedTaskList);
         }else{
-            setTaskList(taskList[index].name = value);
+            const editedTaskList = taskList.map((task, index) => {
+                if(index === taskIndex){
+                    task.name = value;
+                    task.initializing = false;
+                }
+                return task;
+            });
+            setTaskList(editedTaskList);
         }
     }
 
