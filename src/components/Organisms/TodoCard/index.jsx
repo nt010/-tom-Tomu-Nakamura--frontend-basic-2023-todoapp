@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {AddTaskButton} from "../../Atoms/AddTaskButton";
+import {TaskButton} from "../../Atoms/AddTaskButton";
 import {Task} from "../../Molecules/Task";
 import styled from "styled-components";
 import COLOR from "../../../variables/color";
@@ -29,7 +29,7 @@ export const TodoCard = () => {
 
     return (
         <StyledWrapper>
-            <AddTaskButton onClick={onAddTaskButtonClick}/>
+            <TaskButton onClick={onAddTaskButtonClick}/>
             <StyledTaskList>
                 {taskList ? taskList.map((task, index) => (
                 <Task
@@ -46,11 +46,22 @@ export const TodoCard = () => {
 };
 
 const StyledWrapper = styled.div`
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    background: ${COLOR.LIGHT_BLACK};
     
 `;
 
 const StyledTaskList = styled.div`
-    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
 `;
 
 
