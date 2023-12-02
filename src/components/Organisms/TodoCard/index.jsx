@@ -43,38 +43,37 @@ export const TodoCard = () => {
         <StyledWrapper>
             <TaskButton onClick={onAddTaskButtonClick}/>
             <StyledTaskList>
-                {taskList ? taskList.map((task, index) => (
-                <Task
-                    key={index}
-                    onTaskComplete={() => onTaskComplete(index)} 
-                    onTaskNameChange={(value) => onTaskNameChange(value, index)}
-                    taskName = {task.name}
-                    defaultIsEditing = {task.initializing}
-                />  
-                ))  
-                : <></>}
+                {taskList.map((task, index) => (
+                    <StyledItem>
+                        <Task
+                          key={index}
+                          onTaskComplete={() => onTaskComplete(index)} 
+                          onTaskNameChange={(value) => onTaskNameChange(value, index)}
+                          taskName = {task.name}
+                          defaultIsEditing = {task.initializing}
+                        />  
+                    </StyledItem>
+                ))}
             </StyledTaskList> 
         </StyledWrapper>
     );
 };
 
 const StyledWrapper = styled.div`
-    display: flex;
-    width: 100%;
     padding: 20px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    background: ${COLOR.LIGHT_BLACK};
-    
+    border-radius: 4px;
+    background-color: ${COLOR.LIGHT_BLACK};
 `;
 
 const StyledTaskList = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
     align-self: stretch;
+    box-sizing: border-box;
+`;
+
+const StyledItem = styled.div`
+    margin-top: 10px;
 `;
 
 
