@@ -10,12 +10,12 @@ export const TodoCard = () => {
 
 
     const onAddTaskButtonClick = () => {
-        //Spread構文: [...array]で配列を展開
+        //Spread構文: [...array]で配列を展開 ＝＞ 配列末尾にオブジェクトを追加
         setTaskList(taskList => [...taskList, {name:"", initializing: true}]);
     }
 
     const onTaskComplete = (taskIndex) => {
-        const filteredTaskList = taskList.filter((index) => (index != taskIndex));
+        const filteredTaskList = taskList.filter((task, index) => (index != taskIndex));
         setTaskList(filteredTaskList);
     }
 
@@ -24,6 +24,7 @@ export const TodoCard = () => {
             const editedTaskList = taskList.filter((task, index) => {
                 return index !== taskIndex;
             });
+            //taskIndexにあるtaskを除外した配列をsetTaskListに格納
             setTaskList(editedTaskList);
         }else{
             const editedTaskList = taskList.map((task, index) => {
@@ -33,6 +34,7 @@ export const TodoCard = () => {
                 }
                 return task;
             });
+            //taskIndexにあるtaskのnameとinitializingのみを変更した配列をsetTaskListに格納
             setTaskList(editedTaskList);
         }
     }
