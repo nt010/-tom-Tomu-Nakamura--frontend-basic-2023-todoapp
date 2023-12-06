@@ -10,8 +10,8 @@ export const TodoCard = () => {
 
 
     const onAddTaskButtonClick = () => {
-        //Spread構文: [...array]で配列を展開 ＝＞ 配列末尾にオブジェクトを追加
-        setTaskList(taskList => [...taskList, {name:"", initializing: true}]);
+        //Spread構文: [...array]で配列を展開 ＝＞ taskList末尾にオブジェクトを追加
+        setTaskList([...taskList, {name:"", initializing: true}]);
     }
 
     const onTaskComplete = (taskIndex) => {
