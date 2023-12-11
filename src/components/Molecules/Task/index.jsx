@@ -55,6 +55,7 @@ const StyledNameAndButtonWrapper = styled.div`
     display: flex;
     width: 100%;
     gap: 10px;
+    overflow: hidden;
 `;
 
 const StyledTaskName = styled.div`
@@ -64,6 +65,9 @@ const StyledTaskName = styled.div`
     font-weight: 500;
     line-height: 20px;
     width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 const StyledEditButtonWrapper = styled.div`
