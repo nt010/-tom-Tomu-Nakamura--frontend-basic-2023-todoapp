@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {TaskButton} from "../../Atoms/AddTaskButton";
 import {Task} from "../../Molecules/Task";
 import styled from "styled-components";
@@ -39,6 +39,24 @@ export const TodoCard = () => {
         }
     }
 
+    //初期化時にLocalStorageのタスクを取り出す
+    useEffect(() => {
+        const data = localStorage.getItem("storage");
+        if(data !== null){
+            //JSON.parseでJSONからオブジェクトに変換
+            const parsedTaskList = JSON.parse(data);
+            setTaskList(parsedTaskList);
+        }
+    }, [])
+
+    //taskListが更新されたときだけuseEffectを実行
+    useEffect(() => {
+        //JSON.stringifyでオブジェクトからJSON(文字列)に変換
+        const stringifiedTaskList = JSON.stringify(taskList);
+        localStorage.setItem("storage", stringifiedTaskList);
+    }, [taskList])
+
+    
     return (
         <StyledWrapper>
             <TaskButton onClick={onAddTaskButtonClick}/>
