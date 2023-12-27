@@ -8,7 +8,7 @@ export const AlertManager = () => {
 
     //AlertHandlerContextから直接値が取り出せる
     console.log(AlertHandlerContext.visible);
-    AlertHandlerContext.setAlert("message"); //Alertの表示
+    // AlertHandlerContext.setAlert("message"); //Alertの表示
 
     return (
         <Alert
