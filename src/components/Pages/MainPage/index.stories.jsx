@@ -6,11 +6,11 @@ export default {component: MainPage};
 
 export const Default = {
     decorators: [
-        (Stoty) => (
+        (Story) => (
             <div>
                 <AlertHandlerProvider>
                     <AlertManager/>
-                    <Stoty/>
+                    <Story/>
                 </AlertHandlerProvider>
             </div>
         )

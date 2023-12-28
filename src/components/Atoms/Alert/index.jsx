@@ -9,23 +9,23 @@ import TEXT from "../../../variables/texts";
 
 export const Alert = ({isActive}) => {
     return (
-        <StyledWrapper>
-            <StyledAlert isActive={isActive}>タスクの名前が設定されていません。</StyledAlert>
+        <StyledWrapper isActive={isActive}>
+            <StyledAlert>text</StyledAlert>
         </StyledWrapper>
-        
     );
 };
 
 const StyledWrapper = styled.div`
-    display: flex;
-    width: 100%;
+    position: absolute;
     top: 80px;
-    flex-direction: column;
+    left: 50%;
+    width: 100%;
+    max-width: 400px;
     align-items: flex-start;
     gap: 10px;
     border-radius: 4px;
+    transform: translate(-50%, 50%);
     background: ${COLOR.RED};
-
     opacity: ${({isActive}) => isActive ? `1` : `0`};
     
     @media(max-width: ${BREAKPOINT.MEDIUM}){
@@ -34,9 +34,10 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledAlert = styled.div`
-    color: ${COLOR.WHITE};
-    font-family: ${FONTFAMILY.NOTO_SANS};
     ${TEXT.S};
+    font-family: ${FONTFAMILY.NOTO_SANS};
+    color: ${COLOR.WHITE};
+    padding: 10px 20px;
 `;
 
 
