@@ -11,7 +11,7 @@ export const AlertHandlerProvider = ({ children }) => {
   const setAlert = (errorText) => {
     setAlertState({
       visible: true,
-      errorText: "タスクの名前が設定されていません。",
+      errorText: errorText,
     });
   };
 

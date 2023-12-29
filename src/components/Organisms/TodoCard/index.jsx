@@ -28,7 +28,7 @@ export const TodoCard = () => {
                 return index !== taskIndex;
             });
             //Alertの表示
-            AlertHandlerContext.setAlert("message");
+            AlertHandlerContext.setAlert("タスクの名前が設定されていません。");
             //taskIndexにあるtaskを除外した配列をsetTaskListに格納
             setTaskList(editedTaskList);
         }else{
