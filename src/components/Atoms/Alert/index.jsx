@@ -24,13 +24,14 @@ const StyledWrapper = styled.div`
     align-items: flex-start;
     gap: 10px;
     border-radius: 4px;
-    transform: translate(-50%, 100%);
+    transform: translate(-50%, 0);
     background: ${COLOR.RED};
     opacity: ${({isActive}) => isActive ? `1` : `0`};
     transition: 0.5s linear;
     
     @media(max-width: ${BREAKPOINT.MEDIUM}){
         top: ${({ isActive }) => (isActive ? `40px` : `0px`)}; 
+        transform: translate(-50%, 100%);
     }
 `;
 
