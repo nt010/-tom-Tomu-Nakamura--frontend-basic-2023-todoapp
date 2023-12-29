@@ -6,14 +6,11 @@ export const AlertManager = () => {
     //Contextを取得
     const AlertHandlerContext = useAlertHandlerContext();
 
-    //AlertHandlerContextから直接値が取り出せる
-    console.log(AlertHandlerContext.visible);
-
     //第2引数の依存配列が変更された時だけ実行
     useEffect(() => {
         if(AlertHandlerContext.visible === true){
             setTimeout(() => {
-                AlertHandlerContext.setAlert("message");//Alertの表示
+                AlertHandlerContext.closeAlert();
             },5000);
         }
     },[AlertHandlerContext])
@@ -21,6 +18,7 @@ export const AlertManager = () => {
     return (
         <Alert
           isActive={AlertHandlerContext.visible}
+          alertText={AlertHandlerContext.errorText}
         />
     )
 }

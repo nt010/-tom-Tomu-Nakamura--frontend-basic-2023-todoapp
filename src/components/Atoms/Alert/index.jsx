@@ -7,29 +7,30 @@ import TEXT from "../../../variables/texts";
 
 
 
-export const Alert = ({isActive}) => {
+export const Alert = ({isActive,alertText}) => {
     return (
         <StyledWrapper isActive={isActive}>
-            <StyledAlert>text</StyledAlert>
+            <StyledAlert>{alertText}</StyledAlert>
         </StyledWrapper>
     );
 };
 
 const StyledWrapper = styled.div`
     position: absolute;
-    top: 80px;
+    top: ${({ isActive }) => (isActive ? `80px` : `0px`)};
     left: 50%;
     width: 100%;
     max-width: 400px;
     align-items: flex-start;
     gap: 10px;
     border-radius: 4px;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%, 100%);
     background: ${COLOR.RED};
     opacity: ${({isActive}) => isActive ? `1` : `0`};
+    transition: 0.5s linear;
     
     @media(max-width: ${BREAKPOINT.MEDIUM}){
-        top: 40px;
+        top: ${({ isActive }) => (isActive ? `40px` : `0px`)}; 
     }
 `;
 
