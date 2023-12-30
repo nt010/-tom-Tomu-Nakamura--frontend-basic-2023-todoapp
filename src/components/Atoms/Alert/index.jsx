@@ -21,8 +21,6 @@ const StyledWrapper = styled.div`
     left: 50%;
     width: 100%;
     max-width: 400px;
-    align-items: flex-start;
-    gap: 10px;
     border-radius: 4px;
     transform: translate(-50%, 0);
     background: ${COLOR.RED};
@@ -31,7 +29,7 @@ const StyledWrapper = styled.div`
     
     @media(max-width: ${BREAKPOINT.MEDIUM}){
         top: ${({ isActive }) => (isActive ? `40px` : `0px`)}; 
-        transform: translate(-50%, 100%);
+        transform: translate(-50%, 95%);
     }
 `;
 
