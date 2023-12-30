@@ -28,8 +28,8 @@ const StyledWrapper = styled.div`
     transition: 0.5s linear;
     
     @media(max-width: ${BREAKPOINT.MEDIUM}){
-        top: ${({ isActive }) => (isActive ? `40px` : `0px`)}; 
-        transform: translate(-50%, 95%);
+        top: ${({ isActive }) => (isActive ? `20px` : `0px`)}; 
+        transform: translate(-50%, 100%);
     }
 `;
 
