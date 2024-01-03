@@ -3,8 +3,11 @@ import {TaskButton} from "../../Atoms/AddTaskButton";
 import {Task} from "../../Molecules/Task";
 import styled from "styled-components";
 import COLOR from "../../../variables/color";
+import { useAlertHandlerContext } from "../../../contexts/alert_handler";
 
 export const TodoCard = () => {
+    //Contextを取得
+    const AlertHandlerContext = useAlertHandlerContext();
 
     const [taskList,setTaskList] = useState([]);
 
@@ -24,6 +27,8 @@ export const TodoCard = () => {
             const editedTaskList = taskList.filter((task, index) => {
                 return index !== taskIndex;
             });
+            //Alertの表示
+            AlertHandlerContext.setAlert("タスクの名前が設定されていません。");
             //taskIndexにあるtaskを除外した配列をsetTaskListに格納
             setTaskList(editedTaskList);
         }else{
