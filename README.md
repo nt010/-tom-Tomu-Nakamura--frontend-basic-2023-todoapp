@@ -8,3 +8,7 @@
 
 https://nt010.github.io/-tom-Tomu-Nakamura--frontend-basic-2023-todoapp
 
+## 苦労したところ
+
+- Propsによるデータの受け渡し
+- CSSの細かいデザイン
